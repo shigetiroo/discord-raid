@@ -20,7 +20,7 @@ YOUR_NAME =            config["your_name"]
 YOUR_ROLE_NAME =       config["your_role_name"]
 SERVERNAME =           config["servername"]
 DM_MESSAGE =           config["dm_message"]
-NUKE_ROLE =            config["nuke_role"]
+#NUKE_ROLE =            config["nuke_role"]
 ADMIN_ROLE =           config["admin_role"]
 TOKEN =                config["token"]
 if config["prefix_settings"]["use_space"] == True:

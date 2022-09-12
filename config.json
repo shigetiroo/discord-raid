@@ -1,28 +1,28 @@
 {
     "token" : "",
 
-    "status" : "current Server...",
+    "status" : "",
 
-    "restart_message" : "Restarting Bot...",
+    "restart_message" : "",
 
-    "shutdown_message" : "Shutting down Bot...",
+    "shutdown_message" : "",
 
-    "your_name" : "shigetiro!",
+    "your_name" : "",
 
-    "your_spam_message" : "You fucking suck!",
+    "your_spam_message" : "",
 
-    "your_role_name" : "nuked!",
+    "your_role_name" : "",
 
-    "servername" : "Nuked by shigetiro!",
+    "servername" : "",
 
-    "dm_message" : "Get dm'd!",
+    "dm_message" : "",
 
-    "nuke_role" : "nuked",
+    "nuke_role" : "",
 
-    "admin_role" : "nuked",
+    "admin_role" : "",
 
     
     "prefix_settings" : {
-        "prefix" : "r.", 
+        "prefix" : "", 
         "use_space" : false}
 }

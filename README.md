@@ -1,9 +1,6 @@
 # discord-raid
-<<<<<<< HEAD
 A simply PY-Bot to nuke or raid a Discord Server made by [NOVA]timo#4735.
-=======
 A simply PY-Bot to nuke or raid a Discord Server.
->>>>>>> a29ba0a2a3ef6d37de9e987a3208e8da62dbe661
 
 ## Features:  
 
@@ -34,7 +31,6 @@ A simply PY-Bot to nuke or raid a Discord Server.
 
 • Nuke-Command  
 
-<<<<<<< HEAD
 
 ## Setup:
 
@@ -54,8 +50,6 @@ python3 main.py
 (Take into considerartion that you first have to fill in the gaps in config.json)
 
 
-=======
->>>>>>> a29ba0a2a3ef6d37de9e987a3208e8da62dbe661
 ## Configuration  
 config.json holds the basic configuration for the Bot. Change it to your needs.  
 

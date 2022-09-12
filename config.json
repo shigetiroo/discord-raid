@@ -21,8 +21,10 @@
 
     "admin_role" : "",
 
+    "bot_rich_presence_st" : "",
+
     
     "prefix_settings" : {
-        "prefix" : "", 
+        "prefix" : "r.", 
         "use_space" : false}
 }

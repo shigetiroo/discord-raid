@@ -7,7 +7,6 @@ from datetime import datetime
 now = datetime.now()
 intents = discord.Intents().all()
 intents.members = True
-
 with open('./config.json', 'r') as cjson:
     config = json.load(cjson)
 PREFIX =               config["prefix_settings"]["prefix"]
@@ -34,7 +33,7 @@ async def on_ready():
         config = json.load(cjson)
     PREFIXX=config["prefix_settings"]["prefix"]
     current_time = now.strftime("%H:%M:%S")
-    print('-----------------------------------\nLogged in as: {0.user}'.format(client),f'\nPrefix => {PREFIXX}', '\nLogged in at', current_time, '\nID of the Client =', client.user.id,f'\nConnected to {len(client.guilds)} servers!', '\n------------------------------------')
+    print('-----------------------------------\nLogged in as: {0.user}'.format(client),f'\nPrefix => {PREFIXX}', '\nLogged in at', current_time, '\nID of the Client =', client.user.id,f'\nConnected to {len(client.guilds)} servers!', '\nMade by [NOVA]timo#4735' '\n------------------------------------')
     await client.change_presence(status=discord.Status.do_not_disturb, activity=discord.Activity(type=discord.ActivityType.listening, name=STATUS))
 
 

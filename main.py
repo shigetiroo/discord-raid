@@ -12,12 +12,12 @@ with open('./config.json', 'r') as cjson:
     config = json.load(cjson)
 PREFIX =               config["prefix_settings"]["prefix"]
 STATUS =               config["status"]
-ID =                   config["id"]
+#ID =                   config["id"]
 RESTART_MESSAGE =      config["restart_message"]
 SHUTDOWN_MESSAGE =     config["shutdown_message"]
 YOUR_SPAM_MESSAGE =    config["your_spam_message"]
 YOUR_NAME =            config["your_name"]
-#YOUR_ROLE_NAME =       config["your_role_name"]
+YOUR_ROLE_NAME =       config["your_role_name"]
 SERVERNAME =           config["servername"]
 DM_MESSAGE =           config["dm_message"]
 NUKE_ROLE =            config["nuke_role"]
@@ -69,8 +69,8 @@ async def s(ctx):
 
 ## Raid Commands
 
-def is_me(ctx):
-    return ctx.author.id == ID
+#def is_me(ctx):
+#    return ctx.author.id == ID
 
 @client.command()
 @commands.is_owner()
@@ -294,5 +294,19 @@ async def admin(ctx): # Gives you a role with admin permissions (can be named in
     except:
         print(f"There was an error creating the Role {ADMIN_ROLE}!")
         await ctx.message.delete()
+
+
+@client.command()
+@commands.is_owner()
+async def role(ctx,number: int): # Create "input" roles (name given in config.json)
+    try:
+        for i in range(0,number):
+            await ctx.guild.create_role(name=YOUR_ROLE_NAME)
+            await asyncio.sleep(0.5)
+        await ctx.message.delete()
+        print(f"Created {number} roles named {YOUR_ROLE_NAME}")
+    except:
+        print(f"Couldn't create Roles named {YOUR_ROLE_NAME} for {number} times! Check the Bot Permissions!")
+
 
 client.run(TOKEN)

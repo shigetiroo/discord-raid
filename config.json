@@ -21,10 +21,10 @@
 
     "admin_role" : "",
 
-    "bot_rich_presence_st" : "",
+    "nickname" : "",
 
     
     "prefix_settings" : {
-        "prefix" : "r.", 
+        "prefix" : "", 
         "use_space" : false}
 }

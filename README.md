@@ -1,6 +1,5 @@
 # discord-raid
 A simply PY-Bot to nuke or raid a Discord Server made by [NOVA]timo#4735.
-A simply PY-Bot to nuke or raid a Discord Server.
 
 ## Features:  
 
